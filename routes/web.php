@@ -15,12 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/menu','OrderController@items');
+Route::get('/menu','OrderController@items')->name('Order.items');
 
-Route::post('/menu','OrderController@store');
+Route::post('/menu','OrderController@store')->name('Order.menu');
 
-Route::get('/menu/create','OrderController@create');
+Route::get('/menu/create','OrderController@create')->name('Order.create')->middleware('auth');
 
-Route::get('/menu/{id}','OrderController@details');
+Route::get('/menu/{id}','OrderController@details')->name('Order.details');
 
-Route::delete('/menu/{id}','OrderController@remove');
+Route::delete('/menu/{id}','OrderController@remove')->name('Order.remove')->middleware('auth');
+
+Auth::routes([
+    'register'=>false
+]);
+
+Route::get('/home', 'HomeController@index')->name('home');

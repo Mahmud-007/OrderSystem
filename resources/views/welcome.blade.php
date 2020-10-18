@@ -1,7 +1,8 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
 <div class="flex-center position-ref full-height">
+
 
     <div class="content">
         
@@ -10,10 +11,10 @@
         </div>
         <br><br>
         <h3>{{session('msg')}}</h3>
-        <a href="/menu/create">Enter an Order</a>
+        <a href="{{route('Order.create')}}">Enter an Order</a>
         <br>
         <br>
-        <a href="/menu">Dashboard</a>
+        <a href="{{route('Order.items')}}">Dashboard</a>
     </div>
 </div>
 @endsection

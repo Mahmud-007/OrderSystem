@@ -7,6 +7,7 @@ use App\Order;
 
 class OrderController extends Controller
 {
+    
     public function items(){
         $items=Order::get();
         return view('items', [
